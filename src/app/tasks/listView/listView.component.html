@@ -1,0 +1,40 @@
+
+<mat-card>
+  <mat-card-title>ToDo</mat-card-title>
+  <mat-spinner *ngIf='isLoading'></mat-spinner>
+  <mat-accordion multi="true" *ngIf='todoTasks.length && !isLoading'>
+    <mat-expansion-panel *ngFor='let task of todoTasks' class="expansion-panel">
+      <mat-expansion-panel-header #panelH >
+        <mat-panel-title class="panel-title">
+          <mat-checkbox *ngIf="userIsAuthenticated" color="primary" class="checkbox" (click)="panelH._toggle()" (click)="setAsComplete(task)"></mat-checkbox>
+          {{task.title}}</mat-panel-title>
+        <button *ngIf="userIsAuthenticated" mat-button ><mat-icon color="primary" (click)="panelH._toggle()" (click)="editTask(task.id)">edit</mat-icon></button>
+        <button *ngIf="userIsAuthenticated" mat-button ><mat-icon color="warn" (click)="panelH._toggle()" (click)="deleteTask(task.id)">delete</mat-icon></button>
+      </mat-expansion-panel-header>
+      <p>
+        {{task.notes}}
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
+<mat-card>
+  <mat-card-title>Done</mat-card-title>
+  <mat-spinner *ngIf='isLoading'></mat-spinner>
+  <mat-accordion multi="true" *ngIf='doneTasks.length && !isLoading'>
+    <mat-expansion-panel *ngFor='let task of doneTasks' class="expansion-panel completed" >
+      <mat-expansion-panel-header #panelH >
+        <mat-panel-title class="panel-title">
+          <mat-checkbox *ngIf="userIsAuthenticated" color="primary" class="checkbox" [checked]="true" (click)="panelH._toggle()" (click)="setAsComplete(task)"></mat-checkbox>
+          {{task.title}}</mat-panel-title>
+
+        <button *ngIf="userIsAuthenticated" mat-button ><mat-icon color="primary" (click)="panelH._toggle()" (click)="editTask(task.id)">edit</mat-icon></button>
+        <button *ngIf="userIsAuthenticated" mat-button ><mat-icon color="warn" (click)="panelH._toggle()" (click)="deleteTask(task.id)">delete</mat-icon></button>
+      </mat-expansion-panel-header>
+      <p>
+        {{task.notes}}
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
+<p *ngIf='todoTasks.length === 0' class="body-1">All done for today!</p>
+

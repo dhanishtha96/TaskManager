@@ -1,0 +1,16 @@
+.full-width {
+  padding-left: 5%;
+  margin-top: 1rem;
+  width: 90%;
+}
+
+.half-width {
+  margin-top: 1rem;
+  padding-left: 5%;
+  width: 40%;
+  padding-right: 5%;
+}
+
+.btn-dialog {
+  float: right;
+}

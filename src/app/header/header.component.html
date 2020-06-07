@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <span> StackHack </span>
+  <span class="spacer"></span>
+  <ul>
+    <li>
+      <button *ngIf='userIsAuthenticated' mat-raised-button color="accent" (click) = "openTaskModal()"><mat-icon>add</mat-icon>Add Task</button>
+    </li>
+    <li>
+      <a routerLinkActive="mat-accent" routerLink='/bucket'>
+        <button mat-icon-button><mat-icon mat-button >view_comfy</mat-icon></button>
+      </a>
+    </li>
+    <li>
+      <a routerLink='/' routerLinkActive="mat-accent">
+        <button mat-icon-button><mat-icon >list</mat-icon></button>
+      </a>
+    </li>
+    <li *ngIf='!userIsAuthenticated'>
+      <a mat-button routerLink='/login' routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf='!userIsAuthenticated'>
+      <a mat-button routerLink='/signup' routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li *ngIf='userIsAuthenticated'>
+      <button mat-button (click)='onLogout()'>Logout</button>
+    </li>
+
+  </ul>
+
+</mat-toolbar>
+

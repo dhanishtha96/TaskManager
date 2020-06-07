@@ -1,0 +1,25 @@
+.side-nav-container {
+  height: 100%;
+}
+
+.side-nav {
+  width: 20%;
+  background: #f5f7f7;
+}
+
+.main{
+  width:90%;
+  margin-top: 1rem;
+  padding-left: 5%;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+ul li a{
+  display: block;
+  padding: 10px;
+}

@@ -1,0 +1,54 @@
+<mat-sidenav-container class="side-nav-container">
+  <mat-sidenav class="side-nav" mode="side" opened>
+    <mat-nav-list>
+      <div mat-subheader>My Tasks</div>
+      <mat-list-item >
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <div mat-line>Today</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-list-item >
+        <mat-icon mat-list-icon>calendar_today</mat-icon>
+        <div mat-line>Next 7 days</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-list-item >
+        <mat-icon mat-list-icon>calendar_today</mat-icon>
+        <div mat-line>This Month</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-list-item >
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>Previous</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Label</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <div mat-line>Personal</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>work</mat-icon>
+        <div mat-line>Work</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>shopping-chart</mat-icon>
+        <div mat-line>Shopping</div>
+        <div mat-line></div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>label</mat-icon>
+        <div mat-line>Others</div>
+        <div mat-line></div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main class="main">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

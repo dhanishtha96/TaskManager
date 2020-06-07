@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>To do</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todoTasks"
+    [cdkDropListConnectedTo]="[doneList]"
+    [cdkDropListEnterPredicate]="checkAuth"
+    class="list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="box" *ngFor="let task of todoTasks" cdkDrag>
+      <div class="bucket-row">
+        <span style="font-size: 20px;">{{task.title}}</span>
+        <span color="mat-accent" class="label">
+          {{task.label}}
+        </span>
+      </div>
+      <div>
+        <strong>Due Date: </strong>
+        {{task.dueDateString}}
+      </div>
+      <div *ngIf='userIsAuthenticated'>
+        <button mat-icon-button><mat-icon color="primary">edit</mat-icon></button>
+        <button mat-icon-button style="float: right;"><mat-icon color="warn">delete</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="doneTasks"
+    [cdkDropListConnectedTo]="[todoList]"
+    [cdkDropListEnterPredicate]="checkAuth"
+    class="list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="box" *ngFor="let task of doneTasks" cdkDrag>
+      <div class="bucket-row">
+        <span style="font-size: 20px;">{{task.title}}</span>
+        <span color="mat-accent" class="label">
+          {{task.label}}
+        </span>
+      </div>
+      <div>
+        <strong>Due Date: </strong>
+        {{task.dueDateString}}
+      </div>
+      <div *ngIf='userIsAuthenticated'>
+        <button mat-icon-button><mat-icon color="primary" (click)="editTask(task.id)">edit</mat-icon></button>
+        <button mat-icon-button style="float: right;" (click)="deleteTask(task.id)"><mat-icon color="warn">delete</mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>

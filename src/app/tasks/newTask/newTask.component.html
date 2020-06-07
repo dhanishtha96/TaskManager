@@ -1,0 +1,40 @@
+<div class='heading' mat-dialog-title>Save Task</div>
+<mat-divider></mat-divider>
+<form (submit)="onAddNewtask(taskForm)" #taskForm="ngForm">
+  <div mat-dialog-content>
+    <mat-form-field style="display: none;">
+      <input matInput  [ngModel]='task.id' name='id' #id='ngModel'>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Title" name="title" [ngModel]='task.title' required #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a task title!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="What needs to be done?" name="notes" [ngModel]='task.notes' >
+    </mat-form-field>
+
+    <mat-form-field class="half-width left">
+      <mat-select name="label" placeholder="Add a label" [ngModel]='task.label' required #label="ngModel">
+        <mat-option>None</mat-option>
+        <mat-option value="personal">Personal</mat-option>
+        <mat-option value="work">Work</mat-option>
+        <mat-option value="shopping">Shopping</mat-option>
+        <mat-option value="others">Others</mat-option>
+      </mat-select>
+      <mat-error *ngIf="label.invalid">Please select a task label!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="half-width right">
+      <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Due Date" name='dueDate' [ngModel]='task.dueDate' required #dueDate="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="dueDate.invalid">Please enter due date for the task!</mat-error>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions class="btn-dialog">
+    <button mat-raised-button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" mat-button type="submit">Save</button>
+  </mat-dialog-actions>
+</form>
+

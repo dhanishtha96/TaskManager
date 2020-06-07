@@ -1,0 +1,23 @@
+.panel-title {
+  padding-top: 10px;
+}
+
+mat-checkbox ::ng-deep .mat-checkbox-inner-container {
+  width: 25px;
+  height: 25px;
+}
+
+.checkbox {
+  padding-right: 2rem;
+}
+
+.completed {
+  background-color: #d1c3c3;
+  text-decoration: line-through;
+}
+
+mat-card {
+  margin-bottom: 10px;
+  background: #f8f8fc;
+  padding-bottom: 10px;
+}
